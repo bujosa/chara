@@ -6,14 +6,24 @@ pub fn run() {
         .author("Bujosa <davidbujosa@gmail.com>")
         .about("This is a simple app with clap, for learning purposes")
         .arg(
-            Arg::new("help")
-                .short('h')
-                .long("help")
-                .help("Shows this help message"),
+            Arg::with_name("build")
+                .short('b')
+                .long("build")
+                .help("Builds the project"),
+        )
+        .arg(
+            Arg::with_name("debug")
+                .short('d')
+                .long("debug")
+                .help("Debugs the project"),
         )
         .get_matches();
 
-    if matches.is_present("help") {
-        println!("Help message");
+    if matches.is_present("debug") {
+        println!("Debug mode is on");
+    }
+
+    if matches.is_present("build") {
+        println!("Build mode is on");
     }
 }
