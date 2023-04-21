@@ -10,9 +10,8 @@ pub fn run() {
                 .short('h')
                 .long("help")
                 .help("Shows this help message"),
-        );
-
-    let matches = matches.get_matches();
+        )
+        .get_matches();
 
     if matches.is_present("help") {
         println!("Help message");
