@@ -10,4 +10,5 @@ name = "chara"
 path = "src/main.rs"
 
 [dependencies]
-clap = { version = "3.0.0", features = ["derive"] }
+clap = { version = "4.1.8", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }

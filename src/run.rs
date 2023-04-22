@@ -1,29 +1,28 @@
-use clap::Arg;
+use clap::{command, Parser};
+
+#[derive(Parser, Debug)]
+#[command(
+    author = "bujosa",
+    about = "This is a simple app with clap, for learning purposes",
+    display_name = "chara",
+    disable_help_subcommand = false,
+    version
+)]
+struct Opts {
+    #[arg(short, long)]
+    debug: bool,
+    #[arg(short, long)]
+    build: bool,
+}
 
 pub fn run() {
-    let matches = clap::App::new("First App with Clap")
-        .version("1.0")
-        .author("Bujosa <davidbujosa@gmail.com>")
-        .about("This is a simple app with clap, for learning purposes")
-        .arg(
-            Arg::with_name("build")
-                .short('b')
-                .long("build")
-                .help("Builds the project"),
-        )
-        .arg(
-            Arg::with_name("debug")
-                .short('d')
-                .long("debug")
-                .help("Debugs the project"),
-        )
-        .get_matches();
+    let cli = Opts::parse();
 
-    if matches.is_present("debug") {
-        println!("Debug mode is on");
-    }
+    let res = match cli {
+        Opts { debug: true, .. } => "Debug mode",
+        Opts { build: true, .. } => "Build mode",
+        _ => "No mode",
+    };
 
-    if matches.is_present("build") {
-        println!("Build mode is on");
-    }
+    println!("{}", res);
 }
