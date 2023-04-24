@@ -7,6 +7,8 @@ pub fn build_truly(params: bool) {
 pub fn build_local(params: bool) {
     if params {
         println!("Delete from local");
+    } else {
+        println!("Delete from remote");
     }
 }
 

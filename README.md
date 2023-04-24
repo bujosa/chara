@@ -15,6 +15,7 @@ In this project I use:
 - create options
 - create flags
 - create a simple function for print a message
+- add validation for the arguments
 
 ## Installation
 
