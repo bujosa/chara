@@ -23,7 +23,12 @@ pub enum BuildSubCommand {
 #[derive(Args, Debug)]
 pub struct GetDeleteArgs {
     /// Indicate if the build should be truly deleted
-    #[arg(long, short, help = "Truly delete the build", required_if_eq("local", "true"))]
+    #[arg(
+        long,
+        short,
+        help = "Truly delete the build",
+        required_if_eq("local", "true")
+    )]
     truly: Option<bool>,
 
     /// Indicate if the build should be deleted
